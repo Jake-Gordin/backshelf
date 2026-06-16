@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
   var queryText = "select * from users;"
   mySQLCon.query(queryText, function (error, result) {
     if (error) throw error;
-    res.send('SQL Results: ' + result);
+    var resultFormat = JSON.stringify(result);
+    res.send(resultFormat);
   })
 })
