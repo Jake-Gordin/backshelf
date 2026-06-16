@@ -15,6 +15,11 @@ const mySQLCon = mysql.createConnection({
 mySQLCon.connect(function(error) {
   if (error) throw erorr;
   console.log("connected to local mySQL");
+  var sqlDB = "use inventory";
+  mySQLCon.query(sqlDB, function (err, result) {
+    if (err) throw err;
+    console.log("DB set");
+  })
 })
 //responses
 app.get('/', (req, res) => {
@@ -23,6 +28,6 @@ app.get('/', (req, res) => {
   var queryText = "select * from users;"
   mySQLCon.query(queryText, function (error, result) {
     if (error) throw error;
-    res.send('SQL Results: ' + result)
+    res.send('SQL Results: ' + result);
   })
-});
+})
