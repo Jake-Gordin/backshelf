@@ -23,7 +23,7 @@ mySQLCon.connect(function(error) {
 })
 //responses
 app.get('/', (req, res) => {
-  res.send('Received on the live server!');
+  //res.send('Received on the live server!');
   console.log('received message');
   var queryText = "select * from users;"
   mySQLCon.query(queryText, function (error, result) {
